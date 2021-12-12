@@ -7,8 +7,13 @@ export interface GameI {
   releaseDate: Date
   rate: number
   heroImage: string
+  thumb: string
   numberOfPlayers: number
   multiplayerPlayers: number
   quantity: number
   featured: boolean
+}
+
+export interface CategoriesI {
+  name: string
 }

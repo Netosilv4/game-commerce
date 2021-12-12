@@ -46,6 +46,10 @@ export const HeroButton = styled.button`
   border-radius: 10px;
   color: white;
   font-weight: 700;
+  cursor: pointer;
+  :hover {
+    opacity: 0.8;
+  }
 `
 
 export const AditionalInfoBox = styled.div`
