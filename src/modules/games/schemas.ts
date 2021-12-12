@@ -12,6 +12,7 @@ export interface gameInterface extends mongoose.Document {
   numberOfPlayers: number;
   multiplayerPlayers: number;
   quantity: number;
+  featured: boolean
 }
 
 const gameSchema = new mongoose.Schema({
@@ -59,10 +60,12 @@ const gameSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  featured: {
+    type: Boolean,
+    required: true,
+  },
 });
 
-export const gameModel = mongoose.model<gameInterface>('Game', gameSchema);
-
-const Game = mongoose.model<gameInterface>('User', gameSchema);
+const Game = mongoose.model<gameInterface>('game', gameSchema);
 
 export default Game;

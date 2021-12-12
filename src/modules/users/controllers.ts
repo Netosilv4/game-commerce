@@ -26,7 +26,6 @@ export const getUserByEmail = async (req: Request, res: Response) => {
 };
 
 export const createUser = async (req: Request, res: Response) => {
-  console.log(req);
   const { user } = req.body;
   const result = await createUserHandler(user);
   res.status(200).json(result);

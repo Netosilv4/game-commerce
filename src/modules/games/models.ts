@@ -27,6 +27,11 @@ export const findGameById = async (id: string) => {
 
 export const findAllGames = async () => {
   const dbResponse = await Game.find();
-  if (!dbResponse.length) ApiError.notFound('Game not found');
+  if (!dbResponse.length) ApiError.notFound('Games not found');
+  return dbResponse;
+};
+
+export const findFeatured = async () => {
+  const dbResponse = await Game.find({ featured: true });
   return dbResponse;
 };
