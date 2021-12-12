@@ -1,22 +1,39 @@
 import React from 'react'
 import Head from 'next/head'
-
-import RocketseatLogo from '../assets/rocketseat.svg'
-
 import { Container } from '../styles/pages/Home'
+import { Header } from '../components/header'
+import { Hero } from '../components/hero'
+import axios from 'axios'
+import { NextPage } from 'next'
+import { GameI } from '../interfacesAndTypes/game'
+import { Categories } from '../components/categories'
 
-const Home: React.FC = () => {
+interface HomeProps {
+  featured: GameI[]
+}
+
+const Home: NextPage<HomeProps> = ({ featured }) => {
   return (
     <Container>
       <Head>
-        <title>Homepage</title>
+        <title>Login Page</title>
       </Head>
-
-      <RocketseatLogo />
-      <h1>ReactJS Structure</h1>
-      <p>A ReactJS + Next.js structure made by Rocketseat.</p>
+      <Header />
+      <Hero featured={featured} />
+      <Categories />
     </Container>
   )
+}
+
+Home.getInitialProps = async () => {
+  try {
+    const featuredResponse = await axios.get(
+      'http://localhost:4000/game/featured'
+    )
+    return { featured: featuredResponse.data }
+  } catch (err: any) {
+    console.error(err)
+  }
 }
 
 export default Home
