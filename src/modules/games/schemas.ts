@@ -9,6 +9,7 @@ export interface gameInterface extends mongoose.Document {
   releaseDate: Date;
   rate: number;
   heroImage: string;
+  thumb: string;
   numberOfPlayers: number;
   multiplayerPlayers: number;
   quantity: number;
@@ -45,6 +46,10 @@ const gameSchema = new mongoose.Schema({
     required: true,
   },
   heroImage: {
+    type: String,
+    required: true,
+  },
+  thumb: {
     type: String,
     required: true,
   },

@@ -8,14 +8,17 @@ export const createUser = async (user: userInterface) => {
 };
 
 export const findUserByEmail = async (email: string) => {
-  const dbResponse = await User.findOne({ email });
+  const dbResponse = await User.findOne({ 'auth.email': email });
   if (!dbResponse) ApiError.notFound('User not found');
-  return dbResponse;
+  return dbResponse as userInterface;
 };
 
-export const updateUser = async (user: userInterface, id: string) => {
+export const updateUser = async (user: any, id: string) => {
+  console.log(user);
+  console.log('cheguei no user');
   try {
-    const dbResponse = await User.findByIdAndUpdate({ id }, { user }, { new: true });
+    const dbResponse = await User.findOneAndUpdate({ _id: id }, user, { new: true });
+    console.log(dbResponse);
     return dbResponse;
   } catch (error: any) {
     return ApiError.badRequest(error.message);

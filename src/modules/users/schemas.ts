@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
     password: {
       type: String,
       required: true,
+      minlength: 6,
     },
     role: {
       type: String,
@@ -44,10 +45,12 @@ const userSchema = new mongoose.Schema({
     firstName: {
       type: String,
       required: true,
+      minlength: 2,
     },
     lastName: {
       type: String,
       required: true,
+      minlength: 2,
     },
     avatar: {
       type: String,

@@ -1,11 +1,26 @@
+import ApiError from '../../errors/ApiError';
 import {
   createUser, findUserById, findAllUsers, findUserByEmail, updateUser,
 } from './models';
 import { userInterface } from './schemas';
+import generateToken from './validations/jwt';
+import validateLogin from './validations/validateLogin';
+import validateUser from './validations/validateUser';
 
 export const createUserHandler = (user: userInterface) => {
-  const response = createUser(user);
+  const newUser = { ...user, auth: { ...user.auth, role: 'user' } };
+  const verifiedUser = validateUser(newUser);
+  const response = createUser(verifiedUser);
   return response;
+};
+
+export const loginHandler = async (email: string, password: string) => {
+  const user = await findUserByEmail(email);
+  console.log(user);
+  validateLogin(email, password);
+  if (user.auth.password !== password) ApiError.unauthorized('Invalid password');
+  const token = generateToken(email, password, user.auth.role);
+  return { ...user, token };
 };
 
 export const findUserByIdHandler = (id: string) => {
@@ -24,6 +39,7 @@ export const findByEmailHandler = (email: string) => {
 };
 
 export const updateUserHandler = (id: string, user: userInterface) => {
-  const response = updateUser(user, id);
+  const verifiedUser = validateUser(user);
+  const response = updateUser(verifiedUser, id);
   return response;
 };

@@ -1,7 +1,7 @@
 import express from 'express';
 import rescue from 'express-rescue';
 import {
-  getUsers, getUserById, getUserByEmail, createUser, updateUser,
+  getUsers, getUserById, getUserByEmail, createUser, updateUser, postLogin,
 } from './controllers';
 
 const userRoutes = express.Router();
@@ -16,4 +16,5 @@ userRoutes.post('/create', rescue(createUser));
 
 userRoutes.put('/update/:id', rescue(updateUser));
 
+userRoutes.post('/login', rescue(postLogin));
 export default userRoutes;
