@@ -9,6 +9,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { GameI } from '../interfacesAndTypes/game'
 import { Categories } from '../components/categories'
 import GamesOverview from '../components/gamesOverview'
+import { Footer } from '../components/footer'
 
 interface HomeProps {
   featured: GameI[]
@@ -19,12 +20,13 @@ const Home: NextPage<HomeProps> = ({ featured, games }) => {
   return (
     <Container>
       <Head>
-        <title>Login Page</title>
+        <title>GameShop</title>
       </Head>
       <Header />
       <Hero featured={featured} />
       <Categories />
       <GamesOverview games={games} />
+      <Footer />
     </Container>
   )
 }
@@ -39,7 +41,8 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         featured: featuredResponse.data,
         games: gamesResponse.data
-      } // will be passed to the page component as props
+      },
+      revalidate: 5000
     }
   } catch (err: any) {
     console.error(err)

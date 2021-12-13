@@ -5,6 +5,11 @@ export const CategoriesContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   gap: 10px;
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export const CategoryBox = styled.div`

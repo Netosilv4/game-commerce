@@ -22,8 +22,8 @@ export const HeroInfo = styled.div`
   justify-content: space-between;
   position: absolute;
   background-color: #232528;
-  height: 25vw;
-  width: 30vw;
+  height: 350px;
+  width: 400px;
   color: white;
   left: 10%;
   top: 5%;
@@ -33,6 +33,9 @@ export const HeroInfo = styled.div`
     font-weight: 300;
     letter-spacing: 5px;
   }
+  @media (max-width: 600px) {
+    opacity: 0.7;
+  }
 `
 
 export const HeroButton = styled.button`
@@ -41,7 +44,7 @@ export const HeroButton = styled.button`
   justify-content: center;
   width: 90%;
   padding: 10px;
-  background-color: #a32e00;
+  background-color: ${props => props.theme.colors.primary};
   border: transparent;
   border-radius: 10px;
   color: white;

@@ -5,12 +5,15 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import UserProvider from '../contexts/UserContext'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-      <GlobalStyle />
+      <UserProvider>
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </UserProvider>
     </ThemeProvider>
   )
 }

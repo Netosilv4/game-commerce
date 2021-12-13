@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   HeaderContainer,
   HeaderMenu,
@@ -7,10 +7,15 @@ import {
   Title
 } from './styles'
 import { GrSearch, GrFavorite, GrCart } from 'react-icons/gr'
+import { useRouter } from 'next/dist/client/router'
+import { UserContext } from '../../contexts/UserContext'
+import Router from 'next/router'
 export const Header = (): JSX.Element => {
+  const { user } = useContext(UserContext)
+  const router = useRouter()
   return (
     <HeaderContainer>
-      <Title>GameShop</Title>
+      <Title onClick={() => router.push('/')}>GameShop</Title>
       <HeaderMenu>
         <MenuItem>
           <GrSearch size="20px" />
@@ -21,7 +26,13 @@ export const Header = (): JSX.Element => {
         <MenuItem>
           <GrCart size="20px" />
         </MenuItem>
-        <LoginButton>Login</LoginButton>
+        {user ? (
+          <LoginButton onClick={() => Router.push('/profile')}>
+            {user.profile.firstName}
+          </LoginButton>
+        ) : (
+          <LoginButton onClick={() => router.push('/login')}>Login</LoginButton>
+        )}
       </HeaderMenu>
     </HeaderContainer>
   )

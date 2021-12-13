@@ -32,11 +32,14 @@ export const Title = styled.div`
   font-weight: 700;
 `
 export const PriceTag = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${props => props.theme.colors.button};
   min-width: 30px;
   max-width: 30%;
-  padding: 20px;
   border-radius: 0 0 10px 0;
   color: white;
   font-weight: 700;
+  padding: 10px 0;
 `

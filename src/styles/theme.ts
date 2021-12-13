@@ -4,9 +4,8 @@ const theme = {
     paper: '#F5F7FB',
     button: '#393D45',
     text: '#000',
-    primary: '#8257e6',
+    primary: '#a32e00',
     textSecondary: 'white'
   }
 }
-
 export default theme

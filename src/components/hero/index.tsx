@@ -19,7 +19,13 @@ export const Hero = ({ featured }: HeroI): JSX.Element => {
   if (featured.length > 0) {
     return (
       <HeroContainer>
-        <Carousel autoPlay showArrows infiniteLoop interval={2000}>
+        <Carousel
+          autoPlay
+          showArrows
+          infiniteLoop
+          interval={2000}
+          showThumbs={false}
+        >
           {featured.map(e => (
             <ImageContainer
               style={{ display: 'flex', height: '60vh' }}

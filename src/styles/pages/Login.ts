@@ -1,15 +1,8 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
+export const FormContainer = styled.section`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-export const Form = styled.main`
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 `

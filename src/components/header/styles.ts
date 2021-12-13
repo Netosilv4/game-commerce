@@ -8,6 +8,10 @@ export const HeaderContainer = styled.header`
   align-items: center;
   background-color: ${props => props.theme.colors.paper};
   padding: 0 50px;
+  @media (max-width: 600px) {
+    margin-bottom: 50px;
+    height: 60px;
+  }
 `
 
 export const Title = styled.h1`
@@ -20,6 +24,9 @@ export const HeaderMenu = styled.ul`
   justify-content: space-around;
   align-items: center;
   gap: 20px;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 
 export const LoginButton = styled.button`
