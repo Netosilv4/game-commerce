@@ -10,6 +10,7 @@ import { GameI } from '../interfacesAndTypes/game'
 import { Categories } from '../components/categories'
 import GamesOverview from '../components/gamesOverview'
 import { Footer } from '../components/footer'
+import Cart from '../components/chart'
 
 interface HomeProps {
   featured: GameI[]
@@ -22,6 +23,7 @@ const Home: NextPage<HomeProps> = ({ featured, games }) => {
       <Head>
         <title>GameShop</title>
       </Head>
+      <Cart />
       <Header />
       <Hero featured={featured} />
       <Categories />

@@ -7,10 +7,12 @@ import RegisterForm from '../components/registerForm'
 import { FormContainer } from '../styles/pages/Login'
 import { UserContext } from '../contexts/UserContext'
 import { Redirect } from './profile'
+import Cart from '../components/chart'
 const Login = (): JSX.Element => {
   const { user } = useContext(UserContext)
   const [tab, setTab] = useState('login')
   if (user) {
+    console.log('to aqui')
     return <Redirect path="/" />
   }
 
@@ -24,13 +26,13 @@ const Login = (): JSX.Element => {
         return <LoginForm setTab={setTab} />
     }
   }
-
   return (
     <Container>
       <Head>
         <title>GameShop</title>
       </Head>
       <Header />
+      <Cart />
       <FormContainer>{handleTab(tab)}</FormContainer>
     </Container>
   )

@@ -1,4 +1,5 @@
 export interface GameI {
+  _id: string
   name: string
   genres: string[]
   price: number

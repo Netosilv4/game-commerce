@@ -6,4 +6,5 @@ export const Container = styled.div`
   align-items: center;
   gap: 5%;
   background-color: ${props => props.theme.colors.textSecondary};
+  margin-top: 75px;
 `

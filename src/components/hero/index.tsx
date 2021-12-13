@@ -2,7 +2,6 @@ import React from 'react'
 import { GameI } from '../../interfacesAndTypes/game'
 import {
   AditionalInfoBox,
-  HeroButton,
   HeroContainer,
   HeroImage,
   HeroInfo,
@@ -10,6 +9,7 @@ import {
   InfoBox
 } from './styles'
 import { Carousel } from 'react-responsive-carousel'
+import { renderButton } from '../../utils/renderButton'
 
 interface HeroI {
   featured: GameI[]
@@ -42,7 +42,7 @@ export const Hero = ({ featured }: HeroI): JSX.Element => {
                     <InfoBox key={e}>{e}</InfoBox>
                   ))}
                 </AditionalInfoBox>
-                <HeroButton>Adicionar ao carrinho</HeroButton>
+                {renderButton(e)}
               </HeroInfo>
             </ImageContainer>
           ))}

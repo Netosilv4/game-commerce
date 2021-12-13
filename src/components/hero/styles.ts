@@ -34,7 +34,13 @@ export const HeroInfo = styled.div`
     letter-spacing: 5px;
   }
   @media (max-width: 600px) {
-    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    h1 {
+      font-weight: 300;
+      letter-spacing: 1px;
+      font-size: 1.5rem;
+    }
   }
 `
 
@@ -58,6 +64,9 @@ export const HeroButton = styled.button`
 export const AditionalInfoBox = styled.div`
   display: flex;
   gap: 5px;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `
 
 export const InfoBox = styled.div`

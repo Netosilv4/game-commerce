@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect } from 'react'
+import Cart from '../components/chart'
 import { Header } from '../components/header'
 import ProfileSide from '../components/profileInfo/ProfileSide'
 import { UserContext } from '../contexts/UserContext'
@@ -30,6 +31,7 @@ const Profile: React.FC = () => {
         <title>GameShop account</title>
       </Head>
       <Header />
+      <Cart />
       <h1 style={{ margin: '20px' }}>Hello, {user.profile.firstName} !</h1>
       <ProfileWrapper>
         <ProfileSide user={user} setTab={setTab} />

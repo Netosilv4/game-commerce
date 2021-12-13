@@ -8,6 +8,10 @@ export const HeaderContainer = styled.header`
   align-items: center;
   background-color: ${props => props.theme.colors.paper};
   padding: 0 50px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 100;
   @media (max-width: 600px) {
     margin-bottom: 50px;
     height: 60px;

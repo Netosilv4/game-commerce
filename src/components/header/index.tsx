@@ -6,12 +6,14 @@ import {
   MenuItem,
   Title
 } from './styles'
-import { GrSearch, GrFavorite, GrCart } from 'react-icons/gr'
+import { GrSearch, GrCart } from 'react-icons/gr'
 import { useRouter } from 'next/dist/client/router'
 import { UserContext } from '../../contexts/UserContext'
 import Router from 'next/router'
+import { ChartContext } from '../../contexts/UserChart'
 export const Header = (): JSX.Element => {
   const { user } = useContext(UserContext)
+  const { hidden, setHidden } = useContext(ChartContext)
   const router = useRouter()
   return (
     <HeaderContainer>
@@ -20,10 +22,7 @@ export const Header = (): JSX.Element => {
         <MenuItem>
           <GrSearch size="20px" />
         </MenuItem>
-        <MenuItem>
-          <GrFavorite size="20px" />
-        </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setHidden(!hidden)}>
           <GrCart size="20px" />
         </MenuItem>
         {user ? (
