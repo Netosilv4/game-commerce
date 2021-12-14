@@ -1,12 +1,14 @@
 import React from 'react'
 import useRegister from '../../hooks/useRegister'
 import {
+  ErrorMessage,
   FormButton,
   FormInput,
   FormLabel,
   FormWrapper,
   LoginFormContainer
 } from '../../styles/globalComponents/Forms'
+import { FlexDiv } from '../../styles/globalComponents/GeneralComponents'
 import { FormTitle } from '../forms/styles'
 interface RegisterFormProps {
   setTab: (tab: string) => void
@@ -149,17 +151,19 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ setTab }) => {
             placeholder="street"
           />
         </FormLabel>
-        <span>{crudError}</span>
-        <FormButton type="button" onClick={() => sendCreate()}>
-          Sign Up
-        </FormButton>
-        <FormButton
-          type="button"
-          style={{ backgroundColor: 'green' }}
-          onClick={() => setTab('login')}
-        >
-          Already have a account ?
-        </FormButton>
+        <ErrorMessage>{crudError}</ErrorMessage>
+        <FlexDiv>
+          <FormButton type="button" onClick={() => sendCreate()}>
+            Sign Up
+          </FormButton>
+          <FormButton
+            type="button"
+            style={{ backgroundColor: 'green' }}
+            onClick={() => setTab('login')}
+          >
+            Already have a account ?
+          </FormButton>
+        </FlexDiv>
       </FormWrapper>
     </LoginFormContainer>
   )

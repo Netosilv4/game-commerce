@@ -9,7 +9,6 @@ import { GetStaticProps, NextPage } from 'next'
 import { GameI } from '../interfacesAndTypes/game'
 import { Categories } from '../components/categories'
 import GamesOverview from '../components/gamesOverview'
-import { Footer } from '../components/footer'
 import Cart from '../components/chart'
 
 interface HomeProps {
@@ -28,7 +27,6 @@ const Home: NextPage<HomeProps> = ({ featured, games }) => {
       <Hero featured={featured} />
       <Categories />
       <GamesOverview games={games} />
-      <Footer />
     </Container>
   )
 }

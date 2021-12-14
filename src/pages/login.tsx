@@ -2,12 +2,12 @@ import React, { useContext, useState } from 'react'
 import Head from 'next/head'
 import { Container } from '../styles/pages/Home'
 import { Header } from '../components/header'
-import LoginForm from '../components/loginForm'
-import RegisterForm from '../components/registerForm'
-import { FormContainer } from '../styles/pages/Login'
+import RegisterForm from '../components/forms/RegisterForm'
 import { UserContext } from '../contexts/UserContext'
 import { Redirect } from './profile'
 import Cart from '../components/chart'
+import { FormContainer } from '../styles/globalComponents/Forms'
+import LoginForm from '../components/forms/LoginForm'
 const Login = (): JSX.Element => {
   const { user } = useContext(UserContext)
   const [tab, setTab] = useState('login')
@@ -33,7 +33,9 @@ const Login = (): JSX.Element => {
       </Head>
       <Header />
       <Cart />
-      <FormContainer>{handleTab(tab)}</FormContainer>
+      <FormContainer style={{ alignItems: 'center' }}>
+        {handleTab(tab)}
+      </FormContainer>
     </Container>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
 import { Container } from '../../styles/pages/Home'
 import axios from 'axios'
@@ -22,7 +21,6 @@ const Game: NextPage<GameProps> = ({ game }) => {
       <Header />
       <Cart />
       <GameArea game={game} />
-      <Footer />
     </Container>
   )
 }

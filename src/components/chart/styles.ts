@@ -12,5 +12,3 @@ export const CartContainer = styled.div`
   overflow-y: scroll;
   padding: 10px;
 `
-
-// export const CartContainer = styled.div``

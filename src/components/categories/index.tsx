@@ -1,6 +1,7 @@
 import React from 'react'
 import { CategoriesI } from '../../interfacesAndTypes/game'
 import { HomeSection } from '../../styles/globalComponents/HomeSection'
+import { FormTitle } from '../forms/styles'
 import { categoriesArray } from './categoriesArray'
 import { CategoriesContainer, CategoryBox } from './styles'
 
@@ -11,7 +12,7 @@ interface CategoriesProps {
 export const Categories = (): JSX.Element => {
   return (
     <HomeSection>
-      <h1>Categories</h1>
+      <FormTitle>Categories</FormTitle>
       <CategoriesContainer>
         {categoriesArray.map(e => (
           <CategoryBox key={e.name}>

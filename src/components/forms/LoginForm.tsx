@@ -8,6 +8,7 @@ import {
   FormWrapper,
   LoginFormContainer
 } from '../../styles/globalComponents/Forms'
+import { FlexDiv } from '../../styles/globalComponents/GeneralComponents'
 
 interface LoginFormProps {
   setTab: (tab: string) => void
@@ -48,16 +49,18 @@ const LoginForm: React.FC<LoginFormProps> = ({ setTab }) => {
             />
           </FormLabel>
           <span style={{ color: 'red' }}>{loginMessage}</span>
-          <FormButton type="button" onClick={() => loginHandler()}>
-            Login
-          </FormButton>
-          <FormButton
-            style={{ backgroundColor: 'green' }}
-            type="button"
-            onClick={() => setTab('register')}
-          >
-            Dont have an account?
-          </FormButton>
+          <FlexDiv>
+            <FormButton type="button" onClick={() => loginHandler()}>
+              Login
+            </FormButton>
+            <FormButton
+              style={{ backgroundColor: 'green' }}
+              type="button"
+              onClick={() => setTab('register')}
+            >
+              Dont have an account?
+            </FormButton>
+          </FlexDiv>
         </FormWrapper>
       )}
     </LoginFormContainer>

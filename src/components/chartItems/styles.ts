@@ -13,6 +13,7 @@ export const ItemWrapper = styled.div`
   gap: 1rem;
   background-color: ${({ theme }) => theme.colors.button};
   width: 300px;
+  position: relative;
 `
 
 export const BuyDetails = styled.div`
