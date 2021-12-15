@@ -1,0 +1,44 @@
+version: '3'
+services:
+  client:
+    container_name: gamecommerce-client
+    build: 
+      context: ./game-commerce-client
+      dockerfile: Dockerfile
+    ports: 
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - ./game-commerce-client:/app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - server
+
+  server:
+    container_name: gamecommerce-server
+    build: 
+      context: ./game-commerce-server
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - /server/node_modules
+      - ./game-commerce-server:/server
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=development
+
+  db:
+    container_name: db
+    image: mongo:4.2
+    ports:
+    - "27017:27017"
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=gamecommerce
