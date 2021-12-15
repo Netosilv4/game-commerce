@@ -10,9 +10,9 @@ export const createGame = async (game: gameInterface) => {
   }
 };
 
-export const updateGame = async (game: gameInterface, id: string) => {
+export const updateGame = async (game: any, id: string) => {
   try {
-    const dbResponse = await Game.findByIdAndUpdate({ _id: id }, { game }, { new: true });
+    const dbResponse = await Game.findOneAndUpdate({ _id: id }, game, { new: true });
     return dbResponse;
   } catch (error: any) {
     return ApiError.badRequest(error.message);
@@ -34,4 +34,26 @@ export const findAllGames = async () => {
 export const findFeatured = async () => {
   const dbResponse = await Game.find({ featured: true });
   return dbResponse;
+};
+
+export const decreaseQuantity = async (id: string) => {
+  const game = await findGameById(id);
+  if (!game) return { error: 'Game not found' };
+  if (game && game.quantity < 1) {
+    return { error: `${game.name} out of stock` };
+  }
+  const newQuantity = game.quantity - 1;
+  const dbResponse = await Game.findByIdAndUpdate({
+    _id: id,
+  }, { quantity: newQuantity }, { new: true });
+  return dbResponse;
+};
+
+export const verifyOrder = async (id: string) => {
+  const game = await findGameById(id);
+  if (!game) return { error: 'Game not found' };
+  if (game && game.quantity < 1) {
+    return { error: `${game.name} out of stock` };
+  }
+  return { error: 'valid' };
 };

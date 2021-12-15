@@ -1,12 +1,13 @@
-import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import path from 'path';
 import catchError from './errors/errorMiddleware';
 import routes from './modules';
+import populateDb from './scripts/populateDb';
 
-dotenv.config();
+populateDb();
 
-const { PORT } = process.env;
+const PORT = 4000;
 
 const app = express();
 
@@ -18,10 +19,12 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Ok!');
 });
 
+app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
+
 app.use(routes);
 
 app.use(catchError);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port caralho to aqui${PORT}`);
 });

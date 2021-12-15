@@ -6,6 +6,7 @@ import {
 import ApiError from './ApiError';
 
 const catchError = (err: any, req: Request, res: Response, _next: NextFunction) => {
+  console.error(err);
   console.error(err.message);
   if (err.name === 'MongoServerError' && err.code === 11000) {
     res.status(400).json({

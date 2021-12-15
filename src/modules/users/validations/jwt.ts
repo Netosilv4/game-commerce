@@ -1,13 +1,13 @@
 import jwt from 'jsonwebtoken';
 
-const jwtSecret = process.env.JWT_SECRET;
+const JWT_SECRET = 'alou';
 
 const generateToken = (email: string, password: string, role: string) => {
   const token = jwt.sign({
     email,
     password,
     role,
-  }, jwtSecret);
+  }, JWT_SECRET);
 
   return token;
 };

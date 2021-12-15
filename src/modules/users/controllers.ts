@@ -6,7 +6,9 @@ import {
   findUserByIdHandler, findByEmailHandler, createUserHandler, updateUserHandler, loginHandler,
 } from './services';
 
-export const getUsers = async (_req: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
+  const { user } = req.body;
+  if (user.role !== 'admin') res.status(401).json({ message: 'Unauthorized' });
   const users = await findAllUsersHandler();
   res.json(users);
 };
@@ -15,6 +17,7 @@ export const postLogin = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   console.log(email, password);
   const user = await loginHandler(email, password);
+  console.log(user);
   res.status(200).json(user);
 };
 

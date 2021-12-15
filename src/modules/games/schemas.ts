@@ -16,7 +16,7 @@ export interface gameInterface extends mongoose.Document {
   featured: boolean
 }
 
-const gameSchema = new mongoose.Schema({
+export const gameSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,

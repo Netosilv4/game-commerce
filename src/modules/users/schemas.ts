@@ -22,7 +22,7 @@ export interface userInterface extends mongoose.Document {
     updatedAt: Date;
 }
 
-const userSchema = new mongoose.Schema({
+export const userSchema = new mongoose.Schema({
   auth: {
     email: {
       type: String,
