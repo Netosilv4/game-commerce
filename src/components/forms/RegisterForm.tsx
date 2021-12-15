@@ -5,11 +5,12 @@ import {
   FormButton,
   FormInput,
   FormLabel,
+  FormTitle,
   FormWrapper,
   LoginFormContainer
 } from '../../styles/globalComponents/Forms'
 import { FlexDiv } from '../../styles/globalComponents/GeneralComponents'
-import { FormTitle } from '../forms/styles'
+
 interface RegisterFormProps {
   setTab: (tab: string) => void
 }

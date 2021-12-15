@@ -1,13 +1,8 @@
 import React from 'react'
-import { CategoriesI } from '../../interfacesAndTypes/game'
+import { FormTitle } from '../../styles/globalComponents/Forms'
 import { HomeSection } from '../../styles/globalComponents/HomeSection'
-import { FormTitle } from '../forms/styles'
 import { categoriesArray } from './categoriesArray'
 import { CategoriesContainer, CategoryBox } from './styles'
-
-interface CategoriesProps {
-  categories: CategoriesI[]
-}
 
 export const Categories = (): JSX.Element => {
   return (

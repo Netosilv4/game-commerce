@@ -5,7 +5,7 @@ export interface GameI {
   price: number
   publisher: string
   description: string
-  releaseDate: Date
+  releaseDate: string
   rate: number
   heroImage: string
   thumb: string

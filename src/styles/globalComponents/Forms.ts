@@ -31,6 +31,13 @@ export const FormWrapper = styled.form`
   padding: 20px;
 `
 
+export const FormTitle = styled.h1`
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  letter-spacing: 0.1rem;
+`
 export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
@@ -43,11 +50,11 @@ export const FormInput = styled.input`
 
 export const FormButton = styled.button`
   border: none;
-  border-radius: 15px;
-  background-color: ${props => props.theme.colors.primary};
+  border-radius: 5px;
+  background-color: ${props => props.theme.colors.button};
   padding: 10px 0;
   cursor: pointer;
-  color: white;
+  color: ${props => props.theme.colors.textSecondary};
   width: 200px;
   margin: 10px;
   font-weight: 700;
@@ -56,7 +63,10 @@ export const FormButton = styled.button`
   }
 `
 
-export const FormSpan = styled.span``
+export const FormSpan = styled.span`
+  font-weight: bold;
+  color: ${props => props.theme.colors.primary};
+`
 
 export const TextBox = styled.textarea`
   padding: 10px;

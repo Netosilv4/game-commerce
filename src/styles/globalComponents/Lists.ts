@@ -6,6 +6,7 @@ export const ListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
+  font-weight: bold;
   cursor: pointer;
   :hover {
     background-color: #000;

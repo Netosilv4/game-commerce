@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import EditGame from '../components/editGame'
+import AddGameForm from '../components/forms/AddGameForm'
 
 interface SwitchTabI {
   handleTabChange: (tabName: string) => void
@@ -18,9 +19,9 @@ const useSwitchAdminTabs = (): SwitchTabI => {
       case activeTab === 'editGame':
         return <EditGame />
       case activeTab === 'addGame':
-        return <div>AddGame</div>
+        return <AddGameForm />
       default:
-        return <div>AddGame</div>
+        return <EditGame />
     }
   }
   return {

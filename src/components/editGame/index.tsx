@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../contexts/UserContext'
 import useGames from '../../hooks/useGames'
 import { List, ListItem } from '../../styles/globalComponents/Lists'
 import EditGameForm from '../forms/EditGameForm'
 
 const EditGame = (): JSX.Element => {
+  const { user } = useContext(UserContext)
   const {
     games,
     setSelectedGame,
@@ -11,8 +13,10 @@ const EditGame = (): JSX.Element => {
     sendEdit,
     apiResponse,
     selectedFile,
-    setSelectedFile
-  } = useGames()
+    setSelectedFile,
+    deleteGame,
+    setSelectedFileThumb
+  } = useGames(user)
 
   if (!games) return <h1>Loading...</h1>
 
@@ -25,6 +29,8 @@ const EditGame = (): JSX.Element => {
         apiResponse={apiResponse}
         selectedFile={selectedFile}
         setSelectedFile={setSelectedFile}
+        deleteGame={deleteGame}
+        setSelectedFileThumb={setSelectedFileThumb}
       />
     )
   }

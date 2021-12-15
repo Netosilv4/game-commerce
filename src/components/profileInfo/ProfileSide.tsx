@@ -16,7 +16,6 @@ const Profileside: React.FC<ProfileSideProps> = ({ setTab, user }) => {
   return (
     <Aside>
       <AsideMenu>
-        {console.log(user)}
         <AsideMenuItem onClick={() => setTab('info')}>
           <span>Basic info</span>
           <CgProfile color="white" size="30px" />

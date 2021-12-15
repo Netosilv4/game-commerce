@@ -20,15 +20,16 @@ const useBuy = (): useBuyProps => {
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
       const { data } = await axios.post('http://localhost:4000/game/order', {
         items: chartItems,
-        user
+        user,
+        auth: user.auth
       })
       if (data) {
-        setMessage('Compra efetuada com sucesso')
+        setMessage('successful purchase')
       }
       setLoading(false)
     } catch (err) {
       if (err.response) {
-        setMessage(err.response.data.message)
+        setMessage(`${err.response.data.message}, review your purchase`)
         setLoading(false)
       } else {
         setMessage('Internal server error')

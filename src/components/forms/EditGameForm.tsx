@@ -19,6 +19,8 @@ interface EditGameFormProps {
   apiResponse: ApiResponse
   selectedFile: File
   setSelectedFile: (file: File) => void
+  deleteGame: () => void
+  setSelectedFileThumb: (file: File) => void
 }
 
 const EditGameForm: React.FC<EditGameFormProps> = ({
@@ -26,7 +28,9 @@ const EditGameForm: React.FC<EditGameFormProps> = ({
   setSelectedGame,
   sendEdit,
   apiResponse,
-  setSelectedFile
+  setSelectedFile,
+  deleteGame,
+  setSelectedFileThumb
 }) => {
   if (!game) return null
   return (
@@ -47,6 +51,14 @@ const EditGameForm: React.FC<EditGameFormProps> = ({
           type="file"
           name="file"
           onChange={({ target }) => setSelectedFile(target.files[0])}
+        />
+      </FormLabel>
+      <FormLabel>
+        <FormSpan>Thumb image</FormSpan>
+        <FormInput
+          type="file"
+          name="file"
+          onChange={({ target }) => setSelectedFileThumb(target.files[0])}
         />
       </FormLabel>
       <FormLabel>
@@ -86,14 +98,17 @@ const EditGameForm: React.FC<EditGameFormProps> = ({
       ) : null}
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <FormButton type="button" onClick={() => setSelectedGame(undefined)}>
-          voltar
+          Back
+        </FormButton>
+        <FormButton type="button" onClick={() => deleteGame()}>
+          Delete
         </FormButton>
         <FormButton
           style={{ backgroundColor: '#090' }}
           type="button"
           onClick={() => sendEdit()}
         >
-          Salvar
+          Save
         </FormButton>
       </div>
     </FormContainer>

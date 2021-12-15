@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { UserI } from '../../interfacesAndTypes/users'
 import {
+  FormContainer,
   FormInput,
   FormLabel,
-  FormSpan
+  FormSpan,
+  FormTitle
 } from '../../styles/globalComponents/Forms'
 import { capitalize } from '../../utils/capitalize'
-import { FormTitle } from './styles'
 
 interface EditUserFormProps {
   updateUser: (user: UserI) => void
@@ -20,7 +21,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
 }) => {
   const { user } = useContext(UserContext)
   return (
-    <form>
+    <FormContainer>
       <FormTitle>Auth Info</FormTitle>
       {Object.keys(user.auth).map(value => {
         return (
@@ -87,7 +88,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
           </FormLabel>
         )
       })}
-    </form>
+    </FormContainer>
   )
 }
 

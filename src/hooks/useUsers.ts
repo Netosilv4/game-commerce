@@ -39,7 +39,7 @@ const useUser = (): useUserI => {
         email: email,
         password: password
       })
-      setUser({ ...dbResponse.data._doc })
+      setUser({ ...dbResponse.data })
     } catch (err: any) {
       console.log(err)
       if (err.response) {
