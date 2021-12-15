@@ -33,10 +33,8 @@ const Home: NextPage<HomeProps> = ({ featured, games }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const featuredResponse = await axios.get(
-      'http://localhost:4000/game/featured'
-    )
-    const gamesResponse = await axios.get('http://localhost:4000/game')
+    const featuredResponse = await axios.get('http://server:4000/game/featured')
+    const gamesResponse = await axios.get('http://server:4000/game')
     return {
       props: {
         featured: featuredResponse.data,

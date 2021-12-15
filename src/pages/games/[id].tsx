@@ -26,7 +26,7 @@ const Game: NextPage<GameProps> = ({ game }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const gamesResponse = await axios.get('http://localhost:4000/game')
+  const gamesResponse = await axios.get('http://server:4000/game')
 
   const paths = gamesResponse.data.map(game => ({
     params: { id: game._id.toString() }
@@ -41,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async context => {
   const { id } = context.params
   try {
-    const gameResponse = await axios.get(`http://localhost:4000/game/${id}`)
+    const gameResponse = await axios.get(`http://server:4000/game/${id}`)
     return {
       props: {
         game: gameResponse.data
