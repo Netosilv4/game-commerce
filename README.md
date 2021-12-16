@@ -25,6 +25,10 @@ A aplicação utiliza o DOCKER para inicializar os containers e já fazer todas 
 
 - Pronto, o docker cuidará de todo o processo de configuração, inicialização e build do projeto.
 
+- Na pasta da aplicação já está incluso um script para popular o banco de dados com as informações tanto de jogos, quanto de clientes
+
+- Administrador default: netos2@rocketmail.com senha: 123321
+
 ## Detalhes da aplicação
 
 ### Front-end
