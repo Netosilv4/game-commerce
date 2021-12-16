@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import React from 'react'
 import { GameI } from '../../interfacesAndTypes/game'
 import { HomeSection } from '../../styles/globalComponents/HomeSection'
@@ -8,22 +8,21 @@ interface GamesOverviewI {
   games: GameI[]
 }
 const GamesOverview = ({ games }: GamesOverviewI): JSX.Element => {
-  const router = useRouter()
   return (
     <HomeSection>
       <h1>See more</h1>
       <GameBoxContainer>
         {games.map(e => (
-          <GameBox
-            onClick={() => router.push(`/games/${e._id}`)}
-            key={e.name}
-            style={{
-              backgroundImage: `url(${e.thumb})`
-            }}
-          >
-            <PriceTag>R${e.price}</PriceTag>
-            <Title>{e.name}</Title>
-          </GameBox>
+          <Link key={e.name} href={`/games/${e._id}`}>
+            <GameBox
+              style={{
+                backgroundImage: `url(${e.thumb})`
+              }}
+            >
+              <PriceTag>R${e.price}</PriceTag>
+              <Title>{e.name}</Title>
+            </GameBox>
+          </Link>
         ))}
       </GameBoxContainer>
     </HomeSection>

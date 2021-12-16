@@ -44,6 +44,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ setTab }) => {
             <FormSpan>Password:</FormSpan>
             <FormInput
               value={formPassword}
+              type="password"
               onChange={({ target }) => setFormPassword(target.value)}
               placeholder="Password"
             />

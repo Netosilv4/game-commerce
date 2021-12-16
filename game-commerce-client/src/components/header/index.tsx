@@ -11,13 +11,17 @@ import { useRouter } from 'next/dist/client/router'
 import { UserContext } from '../../contexts/UserContext'
 import Router from 'next/router'
 import { ChartContext } from '../../contexts/UserChart'
+import Link from 'next/link'
+
 export const Header = (): JSX.Element => {
   const { user } = useContext(UserContext)
   const { hidden, setHidden } = useContext(ChartContext)
   const router = useRouter()
   return (
     <HeaderContainer>
-      <Title onClick={() => router.push('/')}>GameShop</Title>
+      <Link href="/">
+        <Title>GameShop</Title>
+      </Link>
       <HeaderMenu>
         <MenuItem>
           <GrSearch size="20px" />
@@ -26,11 +30,13 @@ export const Header = (): JSX.Element => {
           <GrCart size="20px" />
         </MenuItem>
         {user ? (
-          <LoginButton onClick={() => Router.push('/profile')}>
+          <LoginButton onClick={() => Router.replace('/profile')}>
             {user.profile.firstName}
           </LoginButton>
         ) : (
-          <LoginButton onClick={() => router.push('/login')}>Login</LoginButton>
+          <LoginButton onClick={() => router.replace('/login')}>
+            Login
+          </LoginButton>
         )}
       </HeaderMenu>
     </HeaderContainer>

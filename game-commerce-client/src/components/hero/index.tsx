@@ -10,6 +10,7 @@ import {
 } from './styles'
 import { Carousel } from 'react-responsive-carousel'
 import { renderButton } from '../../utils/renderButton'
+import Link from 'next/link'
 
 interface HeroI {
   featured: GameI[]
@@ -31,7 +32,9 @@ export const Hero = ({ featured }: HeroI): JSX.Element => {
               style={{ display: 'flex', height: '60vh' }}
               key={e.name}
             >
-              <HeroImage src={e.heroImage} alt={e.name} />
+              <Link href={`/games/${e._id}`}>
+                <HeroImage src={e.heroImage} alt={e.name} />
+              </Link>
               <HeroInfo>
                 <h1>{e.name}</h1>
                 <h2>${e.price}</h2>

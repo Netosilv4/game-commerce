@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { Container } from '../styles/pages/Home'
 import { Header } from '../components/header'
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
         featured: featuredResponse.data,
         games: gamesResponse.data
       },
-      revalidate: 5000
+      revalidate: 10
     }
   } catch (err: any) {
     console.error(err)

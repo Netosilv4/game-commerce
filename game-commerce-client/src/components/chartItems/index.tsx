@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import React, { useContext } from 'react'
 import { ChartContext } from '../../contexts/UserChart'
 import { GameI } from '../../interfacesAndTypes/game'
@@ -7,21 +7,22 @@ import { GameBox, PriceTag, Title } from '../gamesOverview/styles'
 import { ItemWrapper } from './styles'
 
 const ChartItems = ({ item }: { item: GameI }): JSX.Element => {
-  const router = useRouter()
   const { removeFromChart } = useContext(ChartContext)
   return (
     <ItemWrapper>
-      <GameBox
-        onClick={() => router.push(`/games/${item._id}`)}
-        key={item.name}
-        style={{
-          backgroundImage: `url(${item.thumb})`,
-          width: '100%'
-        }}
-      >
-        <PriceTag>R${item.price}</PriceTag>
-        <Title>{item.name}</Title>
-      </GameBox>
+      <Link href={`/games/${item._id}`}>
+        <GameBox
+          key={item.name}
+          style={{
+            backgroundImage: `url(${item.thumb})`,
+            width: '100%'
+          }}
+        >
+          <PriceTag>R${item.price}</PriceTag>
+          <Title>{item.name}</Title>
+        </GameBox>
+      </Link>
+
       <CartButton
         style={{
           backgroundColor: '#fff',

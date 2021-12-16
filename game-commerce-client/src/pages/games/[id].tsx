@@ -7,12 +7,19 @@ import axios from 'axios'
 import { GameI } from '../../interfacesAndTypes/game'
 import GameArea from '../../components/gameArea'
 import Cart from '../../components/chart'
+import { useRouter } from 'next/router'
 
 interface GameProps {
   game: GameI
 }
 
 const Game: NextPage<GameProps> = ({ game }) => {
+  const { isFallback } = useRouter()
+
+  if (isFallback) {
+    return <div>Loading...</div>
+  }
+
   return (
     <Container>
       <Head>
@@ -34,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 
@@ -46,7 +53,7 @@ export const getStaticProps: GetStaticProps = async context => {
       props: {
         game: gameResponse.data
       },
-      revalidate: 120
+      revalidate: 10
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {

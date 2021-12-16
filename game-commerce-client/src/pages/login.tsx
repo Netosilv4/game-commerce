@@ -8,6 +8,7 @@ import { Redirect } from './profile'
 import Cart from '../components/chart'
 import { FormContainer } from '../styles/globalComponents/Forms'
 import LoginForm from '../components/forms/LoginForm'
+
 const Login = (): JSX.Element => {
   const { user } = useContext(UserContext)
   const [tab, setTab] = useState('login')
