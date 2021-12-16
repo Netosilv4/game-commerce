@@ -56,4 +56,4 @@ Algumas das tecnologias utilizadas
 
 ### Preview 
 
-![Screenshot 2021-12-15 at 21-10-27 GameShop](https://user-images.githubusercontent.com/74731807/146284673-55701126-ecdb-4f3f-833f-6b0067a1cf4c.png)
+![Screenshot 2021-12-15 at 21-10-27 GameShop](https://user-images.githubusercontent.com/74731807/146284902-430b9e42-275d-4dfb-8372-386eefc2f981.png)
