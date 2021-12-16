@@ -26,5 +26,5 @@ app.use(routes);
 app.use(catchError);
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port caralho to aqui${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
