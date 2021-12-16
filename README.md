@@ -54,9 +54,6 @@ Algumas das tecnologias utilizadas
 - JsonWebToken
 
 
-###Preview 
+### Preview 
 
-
-
-
-
+![Screenshot 2021-12-15 at 21-10-27 GameShop](https://user-images.githubusercontent.com/74731807/146284673-55701126-ecdb-4f3f-833f-6b0067a1cf4c.png)
