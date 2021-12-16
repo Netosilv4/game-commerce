@@ -11,7 +11,7 @@
 
 ### Introdução
 
-Projeto Gamecommerce relizado para o teste técnico da empresa Codigo Font
+Projeto Gamecommerce
 
 ## Instruções para inicializar o projeto
 
