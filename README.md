@@ -1,9 +1,8 @@
-<div align="center"><h1>Gamecommerce</h1></div>
+<div align="center"><h1>KPIS - TESTE</h1></div>
 
 ## Summario
 
 - [Introdução](#introdução)
-- [Instruções para inicializar o projeto](#instruções-para-inicializar-o-projeto)
 - [Detalhes da aplicação](#detalhes-da-aplicação)
   - [Front-end](#front-end)
   - [Back-end](#back-end)
@@ -11,39 +10,9 @@
 
 ### Introdução
 
-Projeto Gamecommerce
-
-## Instruções para inicializar o projeto
-
-A aplicação utiliza o DOCKER para inicializar os containers e já fazer todas as configurações nescessárias.
-
-- Certifique-se de que as seguintes portas estão liberadas na sua maquina : [3000. 4000. 27017].
-
-- Caso ainda não possua, instale o DOCKER e o docker-compose seguindo a documentação disponível em https://www.docker.com/
-
-- Entre na pasta raiz onde se encontra o arquivo docker-compose.yml e rode o seguinte comando em seu terminal : sudo docker-compose up (Exemplo para SO Linux)
-
-- Pronto, o docker cuidará de todo o processo de configuração, inicialização e build do projeto.
-
-- Na pasta da aplicação já está incluso um script para popular o banco de dados com as informações tanto de jogos, quanto de clientes. O script será executado
-automaticamente ao iniciar o servidor.
-
-- Administrador default: netos2@rocketmail.com senha: 123321
+Projeto KPIs-Charts
 
 ## Detalhes da aplicação
-
-### Front-end
-
-Front-end da aplicação gamecommerce, onde o usuario consegue se cadastrar, visualizar os produtos da loja, edita-los e realizar todo o processo de administração
-
-Algumas das tecnologias utilizadas para a criação:
-
-- NextJS
-- Typescript
-- Styled-components
-- axios
-- mongodb
-
 
 ### Back-end
 
@@ -54,12 +23,55 @@ Algumas das tecnologias utilizadas
 - Typescript
 - NodeJs
 - Express
-- Mongoose
-- Joi
-- JsonWebToken
+- Serveless Framework
+- Aws lambda
+- Prisma
+- Postgresql
+- JWT
+- JEST
+- CSV-PARSE
+- multer
+- Serveless-http
+- Github actions
 
+### Front-end
 
+Front-end da aplicação , onde o usuario consegue realizar a vizualizção de gráficos com métricas de Turnover e Headcount da empresa. 
+
+Algumas das tecnologias utilizadas para a criação:
+
+- React
+- Typescript
+- Material-ui
+- Axios
+- Prisma
+- Github actions
+- Amplify
+
+### Intruções para executar os projetos
+
+## VARIAVEIS DE AMBIENTE
+
+#Frontend
+
+- REACT_APP_API_URL=
+
+#Lambda
+
+- DB_URL=
+- POPUPLATE_KEY=
+
+# Instruções
+
+- Certifique-se de ter o prisma instalado no projeto ou globalmente https://www.prisma.io
+- Certifique-se de ter o Serverless instalado no projeto ou globalmente https://www.serverless.com/
+- Rode "npm install" ou "yarn install" em ambos os projetos
+- Configure as variáveis de ambiente de acordo
+- Rode npx prisma generate para gerar o cliente prisma localmente
+- Para rodar a lambda localmente, você pode tanto rodar o comando "sls offline --httpPort <portaDeSuaPreferencia> ou usar o script que deixei pronto "npm run start-local"
+- Para rodar o frontend basta rodar "npm start" que ele será inicializado na porta 3000 (Certifique-se de que a porta esta liberada)
+- Qualquer dúvida https://www.linkedin.com/in/netosilv4/
+  
 ### Preview 
 
-![Screenshot 2021-12-15 at 21-36-00 GameShop](https://user-images.githubusercontent.com/74731807/146286571-8bce4dc1-966c-43a3-b8fa-f400984643b6.png)
-
+![305948671_454132643335328_3202552155009084175_n](https://user-images.githubusercontent.com/74731807/190238636-79fdb773-73bb-49ef-ac35-3cf6b3e88c10.png)
